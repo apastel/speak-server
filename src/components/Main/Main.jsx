@@ -34,7 +34,7 @@ class Main extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <Grid 
               container
-              direction="row"
+              direction="column"
               justify="center"
               alignItems="center"
               spacing={2}
