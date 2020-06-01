@@ -45,7 +45,7 @@ def speak(text_to_speak):
 
 def show_message(text_to_display):
     print(f'Displaying: {text_to_display}')
-    sense.show_message(text_to_display, 0.05)
+    sense.show_message(text_to_display, 0.05, text_colour=[0,0,255])
 
 # Error Handler
 @app.errorhandler(404)
@@ -56,5 +56,5 @@ def page_not_found(error):
 if __name__ == '__main__':
     os.environ['PA_ALSA_PLUGHW'] = '1'
     sense.set_rotation(180)
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=False, host='0.0.0.0')
     app.run(port=CONSTANTS['PORT'])
