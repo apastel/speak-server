@@ -3,3 +3,4 @@ sense-hat
 rtimulib
 gTTS
 uwsgi
+pygame
