@@ -17,14 +17,14 @@ class Main extends React.Component {
   }
 
   async handleSubmit(event) {
-    const response = await fetch('/submit', {
+    await fetch('/api/submit', {
       method: 'POST',
       body: this.state.value,
       headers: {
         'Content-Type': 'text/plain'
       }
     })
-    return response.ok
+    event.preventDefault();
   }
 
   render() {
