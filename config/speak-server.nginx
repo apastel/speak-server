@@ -1,0 +1,20 @@
+# Copy this file to /etc/nginx/sites-available/speak-server.nginx
+# Then symlink it to /etc/nginx/sites-enabled/speak-server.nginx
+# Then run `systemctl reload nginx`
+
+server {
+    listen 80;
+    root /home/pi/speak-server/server/build;
+    index index.html
+    server_name speaktomenow.tk www.speaktomenow.tk;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location /api {
+         include proxy_params;
+         proxy_pass http://localhost:5000;        
+    }
+}
+

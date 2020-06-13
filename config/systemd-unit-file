@@ -1,0 +1,15 @@
+; Copy this file to /etc/systemd/system/speak-server.service
+; Then run `systemctl daemon-reload`
+
+[Unit]
+Description=gunicorn instance to serve speak-server
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/speak-server/server
+ExecStart=/home/pi/speak-server/venv/bin/gunicorn -b 127.0.0.1:5000 server:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -2,5 +2,5 @@ flask
 sense-hat
 rtimulib
 gTTS
-uwsgi
+gunicorn
 pygame
