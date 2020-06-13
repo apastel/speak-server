@@ -24,7 +24,6 @@ class Main extends React.Component {
         'Content-Type': 'text/plain'
       }
     })
-    event.preventDefault();
   }
 
   render() {
