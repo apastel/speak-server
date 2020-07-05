@@ -12,7 +12,7 @@ const NavBar = () => {
       </div>
       <nav className="navbar navbar-expand-sm navbar-light border-bottom justify-content-between">
         <Link className="navbar-brand" to="/">
-          Speak Easy
+          Speak To Me
         </Link>
       </nav>
     </React.Fragment>

@@ -5,6 +5,7 @@
   "homepage": "https://apastel.github.io",
   "dependencies": {
     "@material-ui/core": "^4.10.0",
+    "axios": "^0.19.2",
     "bootstrap": "4.4.1",
     "classnames": "2.2.6",
     "fs-extra": "9.0.0",

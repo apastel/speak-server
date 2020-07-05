@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import axios from "axios";
 import { TextField, Button, Grid } from "@material-ui/core"
 
 class Main extends React.Component {
@@ -17,13 +18,16 @@ class Main extends React.Component {
   }
 
   async handleSubmit(event) {
-    await fetch('/api/submit', {
-      method: 'POST',
-      body: this.state.value,
+    event.preventDefault();
+    const response = await axios({
+      method: 'post',
+      url: '/api/submit',
+      data: this.state.value,
       headers: {
-        'Content-Type': 'text/plain'
+        'Content-Type': 'text/plain',
       }
     })
+    this.setState({value: ''})
   }
 
   render() {
@@ -39,12 +43,17 @@ class Main extends React.Component {
               spacing={2}
             >
               <Grid item xs={12}>
+                Whatever you type in here will be spoken out loud in my room and displayed on an LED screen.
+              </Grid>
+              <Grid item xs={12}>
                 <TextField
                   id="outlined-basic"
                   label="What do you want it to say?"
                   variant="outlined"
                   onChange={this.handleChange}
                   fullWidth
+                  inputProps={{ maxLength: 200 }}
+                  value={this.state.value}
                 />
               </Grid>
               <Grid item>
@@ -52,6 +61,7 @@ class Main extends React.Component {
                   type="submit"
                   variant="contained"
                   color="primary"
+                  disabled={!this.state.value.length}
                 >
                   Speak
                 </Button>

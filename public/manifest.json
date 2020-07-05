@@ -1,6 +1,6 @@
 ﻿{
-  "short_name": "Speak Easy",
-  "name": "Speak Easy created with Microsoft Web Template Studio",
+  "short_name": "Speak To Me",
+  "name": "Speak To Me created with Microsoft Web Template Studio",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,5 +11,9 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "permissions": [
+    "storage",
+    "*://localhost/*"
+  ]
 }
