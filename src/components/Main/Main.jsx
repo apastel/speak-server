@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import axios from "axios";
-import { TextField, Button, Grid } from "@material-ui/core"
+import { TextField, Button, Grid, Box } from "@material-ui/core"
+import YouTube from "react-youtube"
 
 class Main extends React.Component {
   constructor(props) {
@@ -31,6 +32,15 @@ class Main extends React.Component {
   }
 
   render() {
+    const opts = {
+      height: '180',
+      width: '320',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 1,
+      }
+    }
+
     return <main id="mainContent">
       <div className="container">
         <div className="row justify-content-center mt-5 p-0">
@@ -43,7 +53,7 @@ class Main extends React.Component {
               spacing={2}
             >
               <Grid item xs={12}>
-                Whatever you type in here will be spoken out loud in my room and displayed on an LED screen.
+                Whatever you type in here will be spoken out loud in my room by a robotic voice and displayed on a tiny grid of pixels.
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -65,6 +75,14 @@ class Main extends React.Component {
                 >
                   Speak
                 </Button>
+              </Grid>
+              <Grid item>
+                <Box pt={15}>
+                  <YouTube
+                    videoId="KADqW056f9k"
+                    opts={opts}
+                  />
+                </Box>
               </Grid>
             </Grid>
           </form>

@@ -9,6 +9,7 @@ from io import BytesIO
 
 app = Flask(__name__, static_folder='build')
 sense = SenseHat()
+sense.set_rotation(180)
 
 @app.route('/api/submit', methods=['POST'])
 def submit():
@@ -39,5 +40,5 @@ def show_message(text_to_display):
 
 if __name__ == '__main__':
     os.environ['PA_ALSA_PLUGHW'] = '1'
-    sense.set_rotation(180)
+    # sense.set_rotation(180)
     app.run(debug=False, host='0.0.0.0')

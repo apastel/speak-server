@@ -13,7 +13,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router-dom": "5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-youtube": "^7.11.3"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,7 +29,6 @@
     "build": "node ./buildScript",
     "test": "react-scripts test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d server/build -b master",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx"
   },

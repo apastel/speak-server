@@ -1,75 +1,23 @@
-## Getting Started
+## About
 
-In the root directory of the project...
+Click this image to see a video demonstration.  
+[![Click me](https://img.youtube.com/vi/KADqW056f9k/3.jpg)](https://www.youtube.com/watch?v=KADqW056f9k)
 
-1. Install node modules `yarn install` or `npm install`.
-2. Install Python dependencies `yarn install-requirements` or `npm install-requirements`
-2. Start development server `yarn start` or `npm start`.
+[The website](https://www.speaktomenow.tk/) created from this code allows a visitor to type in a string of text. That text gets sent to a back-end Flask server running on a [Raspberry Pi](https://www.raspberrypi.org/) computer with a [Sense-HAT ](https://www.raspberrypi.org/blog/sense-hat-projects/) attached. That Raspberry Pi computer is in my bedroom. The text is displayed on the LEDs of the HAT sensor, and at the same time it is translated to audio and spoken out loud on an attached speaker. It provides a funny and terrifying way for the public to interact with me and invade my personal life.
 
-## Next Steps
+All text is logged to the server so that I may view it later if I missed it. No identifying information is collected or logged. Steps were taken to lock down the Raspberry Pi server itself from intruders.
 
+Guides used:
+* [How To Serve Flask Applications with uWSGI and Nginx on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04)
+* [How to Deploy a React + Flask Project](https://blog.miguelgrinberg.com/post/how-to-deploy-a-react--flask-project)
 
-### Adding a New Page
+For security lockdown: [Initial Server Setup with Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04)
 
-1. Create a folder in `/src/components` with your react components.
-2. Add a route for your page to `/src/App.js`.
-3. Add a button to the navigation bar in `/src/components/NavBar/index.js`.
+Which I turned into an Ansible project for automation: https://github.com/apastel/rpi-ansible
 
-
-### Deployment
-
-If you selected Azure App Service when creating your project, follow these steps:
-
-1. Press `Ctrl + Shift + P` in Windows/Linux or `Shift ⇧ + Command ⌘ + P` in Mac and type/select `Web Template Studio: Deploy App` to start deploying your app.
-2. After your project is built, click on "server" in the pop up on the top middle section of your screen, and then click "Deploy" on the window pop up.
-3. Once the deployment is done, click "Browse website" in the notification window on the lower right corner to check out your newly deployed app.
-
-If you did not select Azure App Service and want to create a new Azure App Service web app, follow these steps:
-
-1. Press `Ctrl + Shift + P` in Windows/Linux or `Shift ⇧ + Command ⌘ + P` in Mac and type/select `Azure App Service: Create New Web App...` to create a new web app.
-   - Select your subscription
-   - Enter your web app name
-   - Select Linux as your OS
-   - Select Node.js 10.14 for a Node/Express application, Python 3.7 for a Flask application
-2. Once the creation is done, click "Deploy" in the notification window on the lower right corner.
-   - Click "Browse" on the top middle section of your screen and select the server folder within your project
-   - Click "Yes" in the notification window on the lower right corner (build prompt)
-   - Click "Deploy" on the window pop up
-   - Click "Yes" in the notification window on the lower right corner again
-3. Once the deployment is done, click "Browse website" in the notification window on the lower right corner to check out your newly deployed app.
-
-Consider adding authentication and securing back-end API's by following [Azure App Service Security](https://docs.microsoft.com/en-us/azure/app-service/overview-security).
-
-Full documentation for deployment to Azure App Service can be found here: [Deployment Docs](https://github.com/Microsoft/WebTemplateStudio/blob/dev/docs/deployment.md).
-
-## File Structure
-
-The front-end is based on [create-react-app](https://github.com/facebook/create-react-app).
-
-The back-end is based on [Flask](https://github.com/pallets/flask).
-
-The front-end is served on http://localhost:3000/ and the back-end on http://localhost:3001/.
-
-```
-.
-├── src - React front-end
-│ ├── components - React components for each page
-│ ├── App.jsx - React routing
-│ └── index.jsx - React root component
-├── server/ - Flask server that provides API routes and serves front-end
-│ ├── constants.py - Defines the constants for the endpoints and port
-│ └── server.py - Configures Port and HTTP Server and provides API routes
-└── README.md
-```
-
-## Additional Documentation
-
-
-- React - https://reactjs.org/
-- React Router - https://reacttraining.com/react-router/
-
-- Bootstrap CSS - https://getbootstrap.com/
-- Flask - http://flask.pocoo.org/
-
-
-  This project was created using [Microsoft Web Template Studio](https://github.com/Microsoft/WebTemplateStudio).
+## Technologies used
+* [Microsoft Web Template Studio](https://github.com/Microsoft/WebTemplateStudio)
+* Python
+* [Google Text-to-Speech](https://gtts.readthedocs.io/en/latest/) (Python module)
+* [React](https://reactjs.org/)
+* [Gunicorn](https://gunicorn.org/)
