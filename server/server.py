@@ -10,7 +10,6 @@ from io import BytesIO
 
 app = Flask(__name__, static_folder='build')
 sense = SenseHat()
-sense.set_rotation(180)
 quiet_hours_start = datetime.time(23, 30)
 quiet_hours_end = datetime.time(9, 0)
 
@@ -44,6 +43,7 @@ def speak(text_to_speak):
 
 def show_message(text_to_display):
     print(f'Displaying: {text_to_display}', flush=True)
+    sense.set_rotation(180)
     sense.show_message(text_to_display, 0.05, text_colour=[0,0,255])
 
 def time_in_range(start, end, x):
